@@ -1,30 +1,73 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AlumnoService } from 'src/app/alumno.service';
+import { HttpClient } from '@angular/common/http'; 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+
 export class HomePage {
   rutInput: string;
   isInputValid: boolean = true;
+  alumnos: any[];
+  contrasenaInput: string;
+  apiUrl = 'http://localhost:3000/Alumnos';
 
-  constructor() {}
+
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+
+
+
   onRutInputChange() {
     // Verifica si el valor del campo de entrada contiene solo números
     this.isInputValid = /^[0-9Kk\-]+$/.test(this.rutInput);
   }
+
+
+
+
   validateRut() {
-    // Agregar lógica para validar el RUT aquí
-    const rut = this.rutInput;
-    if (this.isValidRut(rut)) {
-      // RUT válido
-      console.log('RUT válido');
-    } else {
-      // RUT inválido
-      console.log('RUT inválido');
-    }
+    // Imprime un mensaje en la consola para verificar que la función se está ejecutando
+    console.log('Validando credenciales...');
+  
+    // Llama al método para recuperar los alumnos desde el servidor
+    this.getAlumnos();
+  
+    // Realiza una solicitud HTTP para obtener los datos de los alumnos desde 'apiUrl'
+    this.http.get(this.apiUrl).subscribe((alumnos: any[]) => {
+      // Busca un usuario con el RUT ingresado en el formulario
+      const usuario = alumnos.find((alumno) => alumno.Rut === this.rutInput);
+  
+      if (usuario && usuario.Contraseña === this.contrasenaInput) {
+        // Credenciales válidas, imprime un mensaje en la consola
+        console.log('Credenciales válidas');
+  
+        // Redirige al usuario a la página principal (reemplaza 'pagina-principal' con la ruta real)
+        this.router.navigate(['/alumno']);
+      } else {
+        // Credenciales inválidas, imprime un mensaje en la consola
+        console.log('Credenciales inválidas');
+  
+        // Puedes mostrar un mensaje de error al usuario en la interfaz de usuario si lo deseas
+      }
+    });
+  }
+  
+  
+  getAlumnos() {
+    this.http.get(`${this.apiUrl}/Alumnos`).subscribe((alumnos: any[]) => {
+      // 'alumnos' contiene la lista de alumnos recuperados del servidor
+      console.log('Alumnos recuperados:', alumnos);
+      // Aquí puedes agregar la lógica para verificar el RUT y la contraseña
+    });
   }
 
   isValidRut(rut: string): boolean {

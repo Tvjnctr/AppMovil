@@ -12,29 +12,30 @@
             <ion-row class="ion-margin-bottom">
               <ion-col size="12">
                 <ion-item class="ion-margin-bottom ion-align-self-center">
-                  <ion-label mode="md" position="floating">Rut Alumnos</ion-label>
-                  <ion-input class="" placeholder="Sin punto ni guión"></ion-input>
+                  <ion-label mode="md" position="floating">RUT del Alumno</ion-label>
+                  <ion-input [(ngModel)]="rutAlumno" name="rutAlumno" placeholder="Sin punto ni guión"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row class="ion-margin-top">
               <ion-col size="12" class="ion-margin-bottom">
-                <ion-item class="">
+                <ion-item class="ion-margin-bottom ion-align-self-center">
                   <ion-label mode="md" position="floating">Nueva Contraseña</ion-label>
-                  <ion-input class="ion-padding-start" type="password" placeholder="Ingresa tu nueva contraseña"></ion-input>
+                  <ion-input [(ngModel)]="nuevaContrasena" name="nuevaContrasena" type="password" placeholder="Ingresa tu nueva contraseña"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row class="ion-margin-top">
               <ion-col size="12" class="ion-margin-bottom">
-                <ion-item class="">
+                <ion-item class="ion-margin-bottom ion-align-self-center">
                   <ion-label mode="md" position="floating">Confirmar Contraseña</ion-label>
-                  <ion-input class="ion-padding-start" type="password" placeholder="IRepite tu nueva contraseña"></ion-input>
+                  <ion-input [(ngModel)]="confirmarContrasena" name="confirmarContrasena" type="password" placeholder="Repite tu nueva contraseña"></ion-input>
                 </ion-item>
               </ion-col>
-            </ion-row><br><br><br>
-            <ion-button href="home" expand="full" fill="solid" shape="round" color="primary" size="medium"
-              class="login-button ion-text-capitalize ion-no-margin">
+            </ion-row>
+            <ion-button expand="full" fill="solid" shape="round" color="primary" size="medium"
+              (click)="cambiarContrasena()" class="login-button ion-text-capitalize ion-no-margin"
+              [disabled]="!rutAlumno || !nuevaContrasena || !confirmarContrasena || nuevaContrasena !== confirmarContrasena">
               Restablecer
             </ion-button>
           </form>

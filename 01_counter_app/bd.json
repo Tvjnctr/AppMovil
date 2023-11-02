@@ -1,125 +1,127 @@
 {
-    "Alumnos": [
-      {
-        "Rut": "123456789",
-        "Contraseña": "contraseña_alumno1",
-        "Nombre": "Juan",
-        "Apellido": "Pérez",
-        "Carrera": "Ingeniería Informática",
-        "Correo": "juan.perez@example.com",
-        "Edad": 20,
-        "Asignaturas": ["Programación", "Matemáticas", "Física"]
-      },
-      {
-        "Rut": "987654321",
-        "Contraseña": "contraseña_alumno2",
-        "Nombre": "Ana",
-        "Apellido": "García",
-        "Carrera": "Ciencias de la Computación",
-        "Correo": "ana.garcia@example.com",
-        "Edad": 22,
-        "Asignaturas": ["Programación", "Algoritmos"]
-      },
-      {
-        "Rut": "567890123",
-        "Contraseña": "contraseña_alumno3",
-        "Nombre": "Carlos",
-        "Apellido": "López",
-        "Carrera": "Ingeniería Eléctrica",
-        "Correo": "carlos.lopez@example.com",
-        "Edad": 21,
-        "Asignaturas": ["Circuitos", "Electromagnetismo"]
-      },
-      {
-        "Rut": "234567890",
-        "Contraseña": "contraseña_alumno4",
-        "Nombre": "María",
-        "Apellido": "Martínez",
-        "Carrera": "Ingeniería Química",
-        "Correo": "maria.martinez@example.com",
-        "Edad": 19,
-        "Asignaturas": ["Química Orgánica", "Termodinámica"]
-      },
-      {
-        "Rut": "345678901",
-        "Contraseña": "contraseña_alumno5",
-        "Nombre": "Javier",
-        "Apellido": "Sánchez",
-        "Carrera": "Ingeniería Civil",
-        "Correo": "javier.sanchez@example.com",
-        "Edad": 23,
-        "Asignaturas": ["Mecánica de Fluidos", "Construcción"]
-      },
-      {
-        "Rut": "456789012",
-        "Contraseña": "contraseña_alumno6",
-        "Nombre": "Lucía",
-        "Apellido": "Ramírez",
-        "Carrera": "Ciencias de la Computación",
-        "Correo": "lucia.ramirez@example.com",
-        "Edad": 20,
-        "Asignaturas": ["Programación", "Algoritmos"]
-      },
-      {
-        "Rut": "567890123",
-        "Contraseña": "contraseña_alumno7",
-        "Nombre": "Pedro",
-        "Apellido": "González",
-        "Carrera": "Ingeniería Civil",
-        "Correo": "pedro.gonzalez@example.com",
-        "Edad": 22,
-        "Asignaturas": ["Mecánica de Materiales", "Dibujo Técnico"]
-      },
-      {
-        "Rut": "678901234",
-        "Contraseña": "contraseña_alumno8",
-        "Nombre": "Sofía",
-        "Apellido": "Fernández",
-        "Carrera": "Ingeniería Industrial",
-        "Correo": "sofia.fernandez@example.com",
-        "Edad": 21,
-        "Asignaturas": ["Gestión de Proyectos", "Estadística"]
-      },
-      {
-        "Rut": "789012345",
-        "Contraseña": "contraseña_alumno9",
-        "Nombre": "Pablo",
-        "Apellido": "Ortega",
-        "Carrera": "Ingeniería Química",
-        "Correo": "pablo.ortega@example.com",
-        "Edad": 24,
-        "Asignaturas": ["Química Inorgánica", "Termodinámica"]
-      },
-      {
-        "Rut": "890123456",
-        "Contraseña": "contraseña_alumno10",
-        "Nombre": "Marta",
-        "Apellido": "Luna",
-        "Carrera": "Ingeniería Mecánica",
-        "Correo": "marta.luna@example.com",
-        "Edad": 22,
-        "Asignaturas": ["Dinámica de Máquinas", "Mecánica de Fluidos"]
-      }
-    ],
-    "Profesores": [
-      {
-        "Rut": "543210987",
-        "Contraseña": "contraseña_profesor1",
-        "Nombre": "Luis",
-        "Apellido": "Rodríguez",
-        "Correo": "luis.rodriguez@example.com",
-        "Edad": 40,
-        "Asignaturas": ["Matemáticas", "Álgebra Lineal"]
-      },
-      {
-        "Rut": "678905432",
-        "Contraseña": "contraseña_profesor2",
-        "Nombre": "Elena",
-        "Apellido": "González",
-        "Correo": "elena.gonzalez@example.com",
-        "Edad": 38,
-        "Asignaturas": ["Física", "Electromagnetismo"]
-      }
-    ]
-  }
+  "ContrasenasCambios": [],
+
   
+  "Alumnos": [
+    {
+      "Rut": "20536215-0",
+      "Contraseña": "alumno123",
+      "Nombre": "Juan",
+      "Apellido": "Pérez",
+      "Carrera": "Ingeniería Informática",
+      "Correo": "juan.perez@example.com",
+      "Edad": 20,
+      "Asignaturas": ["Matemáticas", "Programación", "Física"]
+    },
+    {
+      "Rut": "17625436-1",
+      "Contraseña": "student456",
+      "Nombre": "Maria",
+      "Apellido": "Gómez",
+      "Carrera": "Medicina",
+      "Correo": "maria.gomez@example.com",
+      "Edad": 22,
+      "Asignaturas": ["Anatomía", "Biología"]
+    },
+    {
+      "Rut": "19487392-4",
+      "Contraseña": "pass789",
+      "Nombre": "Carlos",
+      "Apellido": "Martínez",
+      "Carrera": "Derecho",
+      "Correo": "carlos.martinez@example.com",
+      "Edad": 21,
+      "Asignaturas": ["Derecho Penal", "Derecho Civil"]
+    },
+    {
+      "Rut": "15473629-6",
+      "Contraseña": "estud1234",
+      "Nombre": "Ana",
+      "Apellido": "López",
+      "Carrera": "Psicología",
+      "Correo": "ana.lopez@example.com",
+      "Edad": 23,
+      "Asignaturas": ["Psicología Clínica", "Estadística"]
+    },
+    {
+      "Rut": "17398241-5",
+      "Contraseña": "alumno5678",
+      "Nombre": "Pedro",
+      "Apellido": "Rodríguez",
+      "Carrera": "Arquitectura",
+      "Correo": "pedro.rodriguez@example.com",
+      "Edad": 22,
+      "Asignaturas": ["Diseño Arquitectónico", "Historia de la Arquitectura"]
+    },
+    {
+      "Rut": "19872653-8",
+      "Contraseña": "student2022",
+      "Nombre": "Luisa",
+      "Apellido": "Sánchez",
+      "Carrera": "Economía",
+      "Correo": "luisa.sanchez@example.com",
+      "Edad": 24,
+      "Asignaturas": ["Microeconomía", "Macroeconomía"]
+    },
+    {
+      "Rut": "17654329-0",
+      "Contraseña": "estudiante11",
+      "Nombre": "Sofía",
+      "Apellido": "García",
+      "Carrera": "Biología",
+      "Correo": "sofia.garcia@example.com",
+      "Edad": 21,
+      "Asignaturas": ["Genética", "Ecología"]
+    },
+    {
+      "Rut": "20564832-3",
+      "Contraseña": "passAlumno",
+      "Nombre": "Javier",
+      "Apellido": "Torres",
+      "Carrera": "Ingeniería Civil",
+      "Correo": "javier.torres@example.com",
+      "Edad": 25,
+      "Asignaturas": ["Mecánica", "Termodinámica"]
+    },
+    {
+      "Rut": "18543927-2",
+      "Contraseña": "alum1234",
+      "Nombre": "Laura",
+      "Apellido": "Mendoza",
+      "Carrera": "Arte",
+      "Correo": "laura.mendoza@example.com",
+      "Edad": 23,
+      "Asignaturas": ["Historia del Arte", "Dibujo"]
+    },
+    {
+      "Rut": "16273845-1",
+      "Contraseña": "student567",
+      "Nombre": "Miguel",
+      "Apellido": "Hernández",
+      "Carrera": "Historia",
+      "Correo": "miguel.hernandez@example.com",
+      "Edad": 22,
+      "Asignaturas": ["Historia Antigua", "Historia Contemporánea"]
+    }
+  ],
+  "Profesores": [
+    {
+      "Rut": "11973561-0",
+      "Contraseña": "prof12345",
+      "Nombre": "María",
+      "Apellido": "López",
+      "Correo": "maria.lopez@example.com",
+      "Edad": 40,
+      "Asignaturas": ["Matemáticas", "Álgebra"]
+    },
+    {
+      "Rut": "18795642-0",
+      "Contraseña": "teacher6789",
+      "Nombre": "Luis",
+      "Apellido": "Martínez",
+      "Correo": "luis.martinez@example.com",
+      "Edad": 45,
+      "Asignaturas": ["Historia del Arte", "Arqueología"]
+    }
+  ]
+}

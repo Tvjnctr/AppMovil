@@ -24,11 +24,11 @@
              <ion-row class="ion-margin-top">
                <ion-col size="12" class="ion-margin-bottom">
                  <ion-item class="">
-                   <ion-label mode="md" position="floating">Contraseña</ion-label>
-                   <ion-input class="ion-padding-start" type="password" placeholder="Ingresa tu contraseña"></ion-input>
-                 </ion-item>
-                 <a href="/restrablecer-contra" class="fp" color="medium">Olvidaste tu contraseña?</a>
-               </ion-col>
+                  <ion-label mode="md" position="floating">Contraseña</ion-label>
+                  <ion-input [(ngModel)]="contrasenaInput" name="contrasenaInput" type="password" placeholder="Ingresa tu contraseña"></ion-input>
+                </ion-item>
+                <a routerLink="/Forget-password" class="fp" color="medium">Olvidaste tu contraseña?</a>
+              </ion-col>
              </ion-row>
              <ion-row>
                <ion-col size="12">
