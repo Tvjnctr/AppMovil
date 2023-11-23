@@ -1,9 +1,10 @@
 {
-  "ContrasenasCambios": [],
+  "ContrasenasCambios": {},
 
   
-  "Alumnos": [
-    {
+  "Alumnos": {
+    
+      "20536215-0": {
       "Rut": "20536215-0",
       "Contraseña": "alumno123",
       "Nombre": "Juan",
@@ -13,7 +14,8 @@
       "Edad": 20,
       "Asignaturas": ["Matemáticas", "Programación", "Física"]
     },
-    {
+    
+      "17625436-1": {
       "Rut": "17625436-1",
       "Contraseña": "student456",
       "Nombre": "Maria",
@@ -23,7 +25,7 @@
       "Edad": 22,
       "Asignaturas": ["Anatomía", "Biología"]
     },
-    {
+      "19487392-4": { 
       "Rut": "19487392-4",
       "Contraseña": "pass789",
       "Nombre": "Carlos",
@@ -33,7 +35,8 @@
       "Edad": 21,
       "Asignaturas": ["Derecho Penal", "Derecho Civil"]
     },
-    {
+    
+      "15473629-6": {
       "Rut": "15473629-6",
       "Contraseña": "estud1234",
       "Nombre": "Ana",
@@ -43,7 +46,8 @@
       "Edad": 23,
       "Asignaturas": ["Psicología Clínica", "Estadística"]
     },
-    {
+    
+      "17398241-5": {
       "Rut": "17398241-5",
       "Contraseña": "alumno5678",
       "Nombre": "Pedro",
@@ -53,7 +57,7 @@
       "Edad": 22,
       "Asignaturas": ["Diseño Arquitectónico", "Historia de la Arquitectura"]
     },
-    {
+      "19872653-8": {
       "Rut": "19872653-8",
       "Contraseña": "student2022",
       "Nombre": "Luisa",
@@ -62,50 +66,11 @@
       "Correo": "luisa.sanchez@example.com",
       "Edad": 24,
       "Asignaturas": ["Microeconomía", "Macroeconomía"]
-    },
-    {
-      "Rut": "17654329-0",
-      "Contraseña": "estudiante11",
-      "Nombre": "Sofía",
-      "Apellido": "García",
-      "Carrera": "Biología",
-      "Correo": "sofia.garcia@example.com",
-      "Edad": 21,
-      "Asignaturas": ["Genética", "Ecología"]
-    },
-    {
-      "Rut": "20564832-3",
-      "Contraseña": "passAlumno",
-      "Nombre": "Javier",
-      "Apellido": "Torres",
-      "Carrera": "Ingeniería Civil",
-      "Correo": "javier.torres@example.com",
-      "Edad": 25,
-      "Asignaturas": ["Mecánica", "Termodinámica"]
-    },
-    {
-      "Rut": "18543927-2",
-      "Contraseña": "alum1234",
-      "Nombre": "Laura",
-      "Apellido": "Mendoza",
-      "Carrera": "Arte",
-      "Correo": "laura.mendoza@example.com",
-      "Edad": 23,
-      "Asignaturas": ["Historia del Arte", "Dibujo"]
-    },
-    {
-      "Rut": "16273845-1",
-      "Contraseña": "student567",
-      "Nombre": "Miguel",
-      "Apellido": "Hernández",
-      "Carrera": "Historia",
-      "Correo": "miguel.hernandez@example.com",
-      "Edad": 22,
-      "Asignaturas": ["Historia Antigua", "Historia Contemporánea"]
     }
-  ],
-  "Profesores": [
-    {
+
+  },
+  "Profesores": {
+      "11973561-0": {
       "Rut": "11973561-0",
       "Contraseña": "prof12345",
       "Nombre": "María",
@@ -114,7 +79,7 @@
       "Edad": 40,
       "Asignaturas": ["Matemáticas", "Álgebra"]
     },
-    {
+      "18795642-0": {
       "Rut": "18795642-0",
       "Contraseña": "teacher6789",
       "Nombre": "Luis",
@@ -123,5 +88,5 @@
       "Edad": 45,
       "Asignaturas": ["Historia del Arte", "Arqueología"]
     }
-  ]
+  }
 }

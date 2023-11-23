@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { AlumnoService } from 'src/app/alumno.service';
 import { HttpClient } from '@angular/common/http'; 
 import { Router } from '@angular/router';
+import { FirebaseService } from '../servicio/firebase.service';
+import { Alumnos } from '../modelos/usuario';
 
 
 @Component({
