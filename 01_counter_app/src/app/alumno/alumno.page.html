@@ -94,7 +94,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content id="contentH" class="ion-padding">
-    <ion-label class="saludo"><strong>Bienvenido {{ alumno.nombre }} {{ alumno.apellido }}</strong></ion-label>
+    <ion-label class="saludo"><strong>Bienvenido {{ alumno?.nombre }} {{ alumno?.apellido }}</strong></ion-label>
     <br><br> <br>
     <ion-item *ngFor="let clase of detallesClases">
       {{ clase.nombre }} - {{ clase.otroCampo }} <!-- Ajusta según los campos reales de tu clase -->

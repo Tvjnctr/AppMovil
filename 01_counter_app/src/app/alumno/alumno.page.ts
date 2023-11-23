@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AlumnoPage implements OnInit {
 
-  alumno: Alumno;
+  alumno?: Alumno;
   detallesClases: any[]; // Asegúrate de tener una propiedad para almacenar los detalles de las clases
 
   constructor(private storage: Storage, private router: Router, private firebaseService: FirebaseService) { }
@@ -27,11 +27,12 @@ export class AlumnoPage implements OnInit {
       console.log(usuario);
 
       // Llamar al método para obtener detalles de las clases
-      this.obtenerDetalleClases(this.alumno.asignaturainscrita);
+  
     } else {
       console.log('No se encontraron datos del usuario');
       // Manejar la situación cuando no hay datos del usuario
     }
+    this.obtenerDetalleClases(this.alumno.asignaturainscrita);
   }
 
   async obtenerDetalleClases(idsClases: string[]) {
