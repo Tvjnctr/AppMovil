@@ -12,11 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getDatabase, provideDatabase } from "@angular/fire/database";
+import { IonicStorageModule } from '@ionic/storage-angular';
+
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-  provideDatabase(() => getDatabase())],
+  provideDatabase(() => getDatabase()),IonicStorageModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 
