@@ -106,4 +106,25 @@ export class FirebaseService {
     return new Date().getTime();
   }
 
+  async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
+    const attendanceRef = ref(this.db, `asistencia/${idAsistencia}`);
+    console.log("SERVICIO "+attendanceRef)
+    try {
+      const snapshot = await get(attendanceRef);
+      if (snapshot.exists()) {
+        const attendance = snapshot.val();
+        attendance.alumnopresente = attendance.alumnopresente || [];
+        if (!attendance.alumnopresente.includes(idUsuario)) {
+          attendance.alumnopresente.push(idUsuario);
+          await set(attendanceRef, attendance);
+        }
+      } else {
+        console.log('Attendance record not found');
+      }
+    } catch (error) {
+      console.error('Error updating attendance record:', error);
+      throw error;
+    }
+  }
+
 }
