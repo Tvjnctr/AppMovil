@@ -1,89 +1,55 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AlumnoService } from 'src/app/alumno.service';
-import { HttpClient } from '@angular/common/http'; 
 import { Router } from '@angular/router';
 import { FirebaseService } from '../servicio/firebase.service';
 import { Alumnos } from '../modelos/usuario';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
-
 export class HomePage {
-  rutInput: string;
+
+  inputRut: string = '';
+  userInfo: Alumnos = new Alumnos();
   isInputValid: boolean = true;
-  alumnos: any[];
-  contrasenaInput: string;
-  apiUrl = 'http://localhost:3000/Alumnos';
+  contrasenaInput: string = '';
 
+  constructor(private fire: FirebaseService, private router: Router) {}
 
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-
-
+  async obtenerInfo() {
+    this.userInfo = await this.fire.getUserByRut(this.inputRut).toPromise();
+  }
 
   onRutInputChange() {
-    // Verifica si el valor del campo de entrada contiene solo números
-    this.isInputValid = /^[0-9Kk\-]+$/.test(this.rutInput);
+    this.isInputValid = /^[0-9Kk\-]+$/.test(this.inputRut);
   }
 
-
-
-
-  validateRut() {
-    // Imprime un mensaje en la consola para verificar que la función se está ejecutando
-    console.log('Validando credenciales...');
-  
-    // Llama al método para recuperar los alumnos desde el servidor
-    this.getAlumnos();
-  
-    // Realiza una solicitud HTTP para obtener los datos de los alumnos desde 'apiUrl'
-    this.http.get(this.apiUrl).subscribe((alumnos: any[]) => {
-      // Busca un usuario con el RUT ingresado en el formulario
-      const usuario = alumnos.find((alumno) => alumno.Rut === this.rutInput);
-  
-      if (usuario && usuario.Contraseña === this.contrasenaInput) {
-        // Credenciales válidas, imprime un mensaje en la consola
-        console.log('Credenciales válidas');
-  
-        // Redirige al usuario a la página principal (reemplaza 'pagina-principal' con la ruta real)
-        this.router.navigate(['/alumno']);
-      } else {
-        // Credenciales inválidas, imprime un mensaje en la consola
-        console.log('Credenciales inválidas');
-  
-        // Puedes mostrar un mensaje de error al usuario en la interfaz de usuario si lo deseas
-      }
-    });
-  }
-  
-  
-  getAlumnos() {
-    this.http.get(`${this.apiUrl}/Alumnos`).subscribe((alumnos: any[]) => {
-      // 'alumnos' contiene la lista de alumnos recuperados del servidor
-      console.log('Alumnos recuperados:', alumnos);
-      // Aquí puedes agregar la lógica para verificar el RUT y la contraseña
-    });
+  async validateRut() {
+    await this.obtenerInfo(); // Espera a que se complete la obtención de información del usuario
+    console.log(this.userInfo)
+    if (this.userInfo && this.userInfo.Contraseña === this.contrasenaInput) {
+      console.log('Credenciales válidas');
+      this.router.navigate(['/alumno']);
+    } else {
+      console.log('Credenciales inválidas');
+      // Puedes mostrar un mensaje de error al usuario en la interfaz de usuario si lo deseas
+    }
   }
 
   isValidRut(rut: string): boolean {
-    // Expresión regular para validar RUT sin punto ni guión con dígito verificador
     const rutPattern = /^\d{7,8}-?(\d|k|K)$/;
     if (!rutPattern.test(rut)) {
-      return false; // El formato del RUT es incorrecto
+        return false;
     }
-  
-    // Extraer el número y el dígito verificador
+
     const [rutNumber, rutDv] = rut.split('-');
-    // Validar el dígito verificador
-    return this.calculateDv(rutNumber) === rutDv.toUpperCase();
-  }
+    if (rutDv) {
+        return this.calculateDv(rutNumber) === rutDv.toUpperCase();
+    } else {
+        return false; // Manejar el caso donde rutDv es undefined
+    }
+}
   
   calculateDv(rutNumber: string): string {
     // Elimina cualquier posible punto o guión en el RUT

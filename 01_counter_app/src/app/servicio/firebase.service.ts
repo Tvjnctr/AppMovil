@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Database, ref, get, set } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(private db: Database) { }
+  constructor(private db: AngularFireDatabase) {}
 
-  async getUserByRut(rut: string){
-    const userRef = ref(this.db,`Alumnos/${rut}`)
-    const userInfo = await get(userRef)
-
-    return userInfo.val()
-
+  getUserByRut(rut: string): Observable<any> {
+    return this.db.object(`Alumnos/${rut}`).valueChanges();
   }
-
 }

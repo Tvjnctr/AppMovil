@@ -13,12 +13,12 @@
                <ion-col size="12">
                   <ion-item class="ion-margin-bottom ion-align-self-center">
                      <ion-label mode="md" position="floating">Rut Alumnos</ion-label>
-                     <ion-input [(ngModel)]="rutInput" name="rutInput" placeholder="Sin punto ni guión" 
+                     <ion-input [(ngModel)]="inputRut" name="inputRut" placeholder="Sin punto ni guión" 
                                inputmode="numeric" (input)="onRutInputChange()"></ion-input>
                   </ion-item>
-                     <p class="validation-message" *ngIf="rutInput && !isInputValid">Solo se permiten números en el RUT</p>
-                     <p class="validation-message" *ngIf="rutInput && !isValidRut(rutInput)">RUT inválido</p>
-                     <p class="validation-message" *ngIf="rutInput && isValidRut(rutInput)">RUT válido</p>                   
+                     <p class="validation-message" *ngIf="inputRut && !isInputValid">Solo se permiten números en el RUT</p>
+                     <p class="validation-message" *ngIf="inputRut && !isValidRut(inputRut)">RUT inválido</p>
+                     <p class="validation-message" *ngIf="inputRut && isValidRut(inputRut)">RUT válido</p>                   
                </ion-col>
              </ion-row>
              <ion-row class="ion-margin-top">
@@ -34,10 +34,10 @@
                <ion-col size="12">
                  <ion-row class="ion-margin-bottom">
                    <ion-col size="6">
-                     <ion-button (click)="validateRut()" fill="solid" shape="round" color="primary" size="medium"
-                       class="login-button ion-text-capitalize ion-no-margin" [disabled]="!isValidRut(rutInput)">
-                       Login
-                     </ion-button>
+                      <ion-button (click)="validateRut()" fill="solid" shape="round" color="primary" size="medium"
+                        class="login-button ion-text-capitalize ion-no-margin" [disabled]="!isValidRut(inputRut)">
+                        Login
+                      </ion-button>
                    </ion-col>
                    <ion-col size="6">
                      <ion-button href="/login-p" fill="clear" shape="round" color="medium" size="medium"
