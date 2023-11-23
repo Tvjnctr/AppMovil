@@ -18,7 +18,7 @@ export class HomePage {
   constructor(private fire: FirebaseService, private router: Router) {}
 
   async obtenerInfo() {
-    this.userInfo = await this.fire.getUserByRut(this.inputRut).toPromise();
+    this.userInfo = await this.fire.obtenerUsuario(this.inputRut)
   }
 
   onRutInputChange() {

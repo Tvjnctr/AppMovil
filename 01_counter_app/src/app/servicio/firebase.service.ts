@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Database, ref, get } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,9 +7,43 @@ import { Observable } from 'rxjs';
 })
 export class FirebaseService {
 
-  constructor(private db: AngularFireDatabase) {}
+  
+  constructor(private db: Database) {}
 
-  getUserByRut(rut: string): Observable<any> {
-    return this.db.object(`Alumnos/${rut}`).valueChanges();
+  async obtenerUsuario(user: string) {
+    const userRef = ref(this.db, `/Alumnos/${user}`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {    
+      return snapshot.val();
+    } else {
+      return null;
+    }
   }
+
+  
+  async obtenerClase(user: string) {
+    const userRef = ref(this.db, `/Asignaturas/${user}`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {    
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  }
+
+  
+  async obtenerAsistencia(user: string) {
+    const userRef = ref(this.db, `//${user}`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {    
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  }
+
+
+
+
+
 }
