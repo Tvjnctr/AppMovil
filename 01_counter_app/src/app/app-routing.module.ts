@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'restablecer-contra',
     loadChildren: () => import('./restablecer-contra/restablecer-contra.module').then( m => m.RestablecerContraPageModule)
+  },  {
+    path: 'qrscanner',
+    loadChildren: () => import('./qrscanner/qrscanner.module').then( m => m.QrscannerPageModule)
   },
+
 
 ];
 
