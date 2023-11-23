@@ -17,4 +17,11 @@
   <ion-button (click)="crearAsistencia()"  expand="block" fill="solid" shape="round">
     Iniciar Clase
   </ion-button>
+
+  <ion-card class="fondoOscuro" *ngFor="let asist of asistenciasClase" (click)="verAsistenciasPasadas(asist.idasistencia)">
+    <ion-card-header>
+      <ion-card-subtitle class="colorAmarillo">Fecha de Asistencia:</ion-card-subtitle>
+      <ion-card-title class="colorLetra">{{asist.fecha | date: 'medium'}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

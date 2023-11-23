@@ -14,6 +14,7 @@ export class DetalleAsignaturaPage implements OnInit {
 
   asignatura : Clase = new Clase()
   codigoAsignatura: string = '';
+  asistenciasClase : any[] = [];
   constructor(private activatedroute: ActivatedRoute, private fire: FirebaseService, private router : Router) { }
 
   ngOnInit() {
@@ -23,11 +24,13 @@ export class DetalleAsignaturaPage implements OnInit {
         const asignaturaObtenida = await this.fire.obtenerClase(this.codigoAsignatura);
         if (asignaturaObtenida) {
           this.asignatura = asignaturaObtenida;
+          this.listaAsistencia()
         } else {
           // Manejar el caso de que la asignatura no se encuentre
           console.log('Asignatura no encontrada');
         }
       }
+
     });
   }
 
@@ -42,4 +45,19 @@ export class DetalleAsignaturaPage implements OnInit {
       queryParams: { idasistencia: idasistencia }
     });
   }
+
+  listaAsistencia(){
+    this.fire.obtenerAsistenciasPorClase(this.asignatura.idclase).then(asistencias => {
+      console.log("FLAG1",asistencias)
+      this.asistenciasClase= asistencias; // Aquí tendrás las asistencias filtradas por idClase = 1
+    });
+  }
+
+  
+  verAsistenciasPasadas(uuid: string){
+    this.router.navigate(['/qr-generado'], {
+      queryParams: { idasistencia: uuid }
+    });
+  }
+
 }

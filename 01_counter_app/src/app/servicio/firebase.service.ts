@@ -81,6 +81,16 @@ export class FirebaseService {
   }
 
 
+  async obtenerAsistencia2(user: string) {
+    const userRef = ref(this.db, `/asistencia/${user}`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {    
+      return snapshot.val() as Asistencia;
+    } else {
+      return null;
+    }
+  }
+
   async crearAsistencia(clase: Clase): Promise<string> {
     const uuid = this.generateUuid();
 
@@ -126,5 +136,25 @@ export class FirebaseService {
       throw error;
     }
   }
+
+
+  async obtenerAsistenciasPorClase(idclase: string) {
+    const asistenciasRef = ref(this.db, '/asistencia');
+    const snapshot = await get(asistenciasRef);
+    if (snapshot.exists()) {
+      const todasLasAsistencias = snapshot.val();
+      const asistenciasFiltradas = Object.keys(todasLasAsistencias)
+        .filter(key => todasLasAsistencias[key].idclase == idclase)
+        .map(key => {
+          return {
+            ...todasLasAsistencias[key]
+          };
+        });
+      return asistenciasFiltradas;
+    } else {
+      return [];
+    }
+  }
+
 
 }
