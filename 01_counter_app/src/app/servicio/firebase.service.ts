@@ -11,7 +11,7 @@ export class FirebaseService {
   constructor(private db: Database) {}
 
   async obtenerUsuario(user: string) {
-    const userRef = ref(this.db, `/Alumnos/${user}`);
+    const userRef = ref(this.db, `/alumnos/${user}`);
     const snapshot = await get(userRef);
     if (snapshot.exists()) {    
       return snapshot.val();
@@ -22,7 +22,7 @@ export class FirebaseService {
 
   
   async obtenerClase(user: string) {
-    const userRef = ref(this.db, `/Asignaturas/${user}`);
+    const userRef = ref(this.db, `/clases/${user}`);
     const snapshot = await get(userRef);
     if (snapshot.exists()) {    
       return snapshot.val();
@@ -31,9 +31,19 @@ export class FirebaseService {
     }
   }
 
+  async obtenerClasesDeAlumno(userId: string) {
+    const userRef = ref(this.db, `/alumnos/${userId}/asignaturainscrita`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return [];
+    }
+  }
+
   
   async obtenerAsistencia(user: string) {
-    const userRef = ref(this.db, `//${user}`);
+    const userRef = ref(this.db, `/asistencia/${user}`);
     const snapshot = await get(userRef);
     if (snapshot.exists()) {    
       return snapshot.val();

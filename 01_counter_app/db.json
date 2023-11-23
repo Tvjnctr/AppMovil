@@ -1,0 +1,64 @@
+{
+  "alumnos": {
+    "20536215-0": {
+      "nombre": "tomas",
+      "apellido": "rosales",
+      "rut": "20536215-0",
+      "sede": "cerrillos",
+      "contra": "alumno123",
+      "edad": "22",
+      "esprofe": false,
+      "asignaturainscrita":["py1112-01d","py4412-23f"]
+    },
+    "17398241-5": {
+      "nombre": "juan",
+      "apellido": "araya",
+      "rut": "17398241-5",
+      "sede": "maipu",
+      "contra": "alumno321",
+      "edad": "19",
+      "esprofe": false
+    },
+    "17625436-1": {
+      "nombre": "leslie",
+      "apellido": "rojas",
+      "rut": "17625436-1",
+      "sede": "maipu",
+      "contra": "alumno213",
+      "edad": "26",
+      "esprofe": false
+    },
+    "11973561-0": {
+      "nombre": "jose",
+      "apellido": "rojas",
+      "rut": "11973561-0",
+      "sede": "maipu",
+      "contra": "profe123",
+      "edad": "29",
+      "esprofe": true,
+      "asignaturaprofe": ["py1112-01d","py4412-23f"]
+    }
+  },
+
+  "clases": {
+    "py1112-01d": {
+      "nombre": "programacion web",
+      "idclase": "py1112-01d",
+      "alumnosinscritos": ["20536215-0"]
+    },
+    "py4412-23f": {
+      "nombre": "base de datos",
+      "idclase": "py4412-23f"
+    }
+  },
+  
+  "asistencia": {
+    "abcde": {
+      "idasistencia": "abcde",
+      "fecha": 30,
+      "nombreclase": "base de datos",
+      "idclase": "py4412-23f",
+      "alumnopresente": ["20536215-0", "17398241-5"]
+    }
+  }
+}

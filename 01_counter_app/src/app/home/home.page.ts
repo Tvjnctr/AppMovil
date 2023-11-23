@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../servicio/firebase.service';
-import { Alumnos } from '../modelos/usuario';
+import { Alumno } from '../modelos/usuario';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { Alumnos } from '../modelos/usuario';
 export class HomePage {
 
   inputRut: string = '';
-  userInfo: Alumnos = new Alumnos();
+  userInfo: Alumno = new Alumno();
   isInputValid: boolean = true;
   contrasenaInput: string = '';
 
@@ -28,7 +28,7 @@ export class HomePage {
   async validateRut() {
     await this.obtenerInfo(); // Espera a que se complete la obtención de información del usuario
     console.log(this.userInfo)
-    if (this.userInfo && this.userInfo.Contraseña === this.contrasenaInput) {
+    if (this.userInfo && this.userInfo.contra === this.contrasenaInput) {
       console.log('Credenciales válidas');
       this.router.navigate(['/alumno']);
     } else {

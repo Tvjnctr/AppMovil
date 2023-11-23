@@ -1,20 +1,33 @@
-export class Alumnos {
-    "Rut": string = '';
-    "Contraseña": string = '';
-    "Nombre": string = '';
-    "Apellido": string = '';
-    "Carrera": string = '';
-    "Correo": string = '';
-    "Edad": string = '';
-    "Asignaturas": string = '';
+export class Alumno {
+    
+    "nombre": string = '';
+    "apellido": string = '';
+    "rut": string = '';
+    "sede": string = '';
+    "contra": string = '';
+    "edad": string = '';
+    "esprofe": boolean ;
+    "asignaturainscrita": [] = []
+    
 }
 
-export class Profesores {
-    "Rut": string = '';
-    "Contraseña": string = '';
-    "Nombre": string = '';
-    "Apellido": string = '';
-    "Correo": string = '';
-    "Edad": string = '';
-    "Asignaturas": string = '';
+export class Clase {
+    
+    "nombre": string = '';
+    "idclase": string = '';
+    "alumnosinscritos": [] = []
+
+}
+
+export class Asistencia {
+    
+    "nombre": string = '';
+    "apellido": string = '';
+    "rut": string = '';
+    "sede": string = '';
+    "contra": string = '';
+    "edad": string = '';
+    "esprofe": boolean ;
+    "asignaturainscrita": [] = []
+    ""
 }

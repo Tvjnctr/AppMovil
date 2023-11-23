@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../servicio/firebase.service';
+import { Alumno } from '../modelos/usuario';
 
 @Component({
   selector: 'app-alumno',
@@ -8,15 +10,25 @@ import { Router } from '@angular/router';
 })
 export class AlumnoPage implements OnInit {
 
-  constructor(private router: Router) { }
+  alumno: Alumno; // Asegúrate de tener una propiedad para almacenar los datos del alumno
+
+  constructor(private router: Router, private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    // Reemplaza 'id_del_alumno' con la lógica adecuada para obtener el ID del alumno actual
+    const userId = 'id_del_alumno'; 
+    this.firebaseService.obtenerUsuario(userId).then(alumno => {
+      this.alumno = alumno;
+      this.obtenerClasesDeAlumno(userId);
+    });
   }
 
-  logoutAndNavigateToHome() {
-    // Aquí puedes realizar la lógica de cierre de sesión (por ejemplo, borrar tokens, limpiar la sesión, etc.).
-
-    // Luego, navega a la página de inicio.
-    this.router.navigate(['/home']);
+  obtenerClasesDeAlumno(userId: string) {
+    this.firebaseService.obtenerClasesDeAlumno(userId).then(clases => {
+      console.log('Clases del alumno:', clases);
+      // Puedes asignar las clases a propiedades del componente si es necesario
+    });
   }
+
+  // ... otros métodos, como logoutAndNavigateToHome()
 }
