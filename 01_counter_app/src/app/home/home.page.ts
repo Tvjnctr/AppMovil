@@ -30,6 +30,7 @@ export class HomePage {
     console.log(this.userInfo)
     if (this.userInfo && this.userInfo.contra === this.contrasenaInput) {
       console.log('Credenciales válidas');
+      await this.fire.setCurrentUser(this.userInfo);
       this.router.navigate(['/alumno']);
     } else {
       console.log('Credenciales inválidas');

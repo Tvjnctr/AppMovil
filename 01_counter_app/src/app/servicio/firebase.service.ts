@@ -1,14 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Database, ref, get } from '@angular/fire/database';
-import { Observable } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
+import { Alumno } from '../modelos/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  
-  constructor(private db: Database) {}
+  private currentUser: Alumno = new Alumno();
+  constructor(private db: Database, private storage: Storage) {
+    this.storage.create();
+  }
+
+  async setCurrentUser(alumno: Alumno) {
+    this.currentUser = alumno;
+    await this.storage.set('currentUser', alumno);
+  }
+
+  async getCurrentUser() {
+    if (this.currentUser) {
+      return this.currentUser;
+    }
+    this.currentUser = await this.storage.get('currentUser');
+    return this.currentUser;
+  }
+
+  async clearCurrentUser() {
+    this.currentUser = new Alumno();
+    this.storage.remove('currentUser');
+  }
 
   async obtenerUsuario(user: string) {
     const userRef = ref(this.db, `/alumnos/${user}`);
