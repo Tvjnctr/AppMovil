@@ -96,7 +96,12 @@
       </ion-toolbar>
    </ion-header>
   <ion-content id="contentH" class="ion-padding">
-   <ion-label class="saludo"><strong>Bienbenido (Profesor)</strong></ion-label>
+   <ion-label class="saludo"><strong>Bienvenido (Profesor)</strong></ion-label>
    <br><br> <br>
+   <ion-label class="saludo"><strong>Bienvenido {{ alumno?.nombre }} {{ alumno?.apellido }}</strong></ion-label>
+   <br><br> <br>
+   <ion-item button detail="true" *ngFor="let clase of detallesClases" (click)="verDetalleAsignatura(clase.idclase)">
+     {{ clase.nombre }} - {{ clase.otroCampo }} <!-- Ajusta según los campos reales de tu clase -->
+   </ion-item>
   </ion-content>
 </div>

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Database, ref, get } from '@angular/fire/database';
+import { Database, ref, get, set } from '@angular/fire/database';
 import { Storage } from '@ionic/storage-angular';
-import { Alumno } from '../modelos/usuario';
+import { Alumno, Clase, Asistencia } from '../modelos/usuario';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable({
   providedIn: 'root'
@@ -79,7 +81,29 @@ export class FirebaseService {
   }
 
 
+  async crearAsistencia(clase: Clase): Promise<string> {
+    const uuid = this.generateUuid();
 
+    // Crear un nuevo objeto Asistencia usando la clase modelo
+    const nuevaAsistencia = new Asistencia();
+    nuevaAsistencia.fecha = this.getCurrentTimestamp();
+    nuevaAsistencia.nombreclase = clase.nombre;
+    nuevaAsistencia.idclase = clase.idclase;
+    nuevaAsistencia.idasistencia = uuid;
 
+    // Guardar el objeto Asistencia en Firebase
+    const asistenciaRef = ref(this.db, `/asistencia/${uuid}`);
+    await set(asistenciaRef, nuevaAsistencia);
+
+    return uuid; // Devuelve el UUID del nuevo registro de asistencia
+  }
+
+  generateUuid(): string {
+    return uuidv4();
+  }
+
+  getCurrentTimestamp(): number {
+    return new Date().getTime();
+  }
 
 }

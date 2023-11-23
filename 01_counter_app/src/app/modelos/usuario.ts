@@ -8,7 +8,7 @@ export class Alumno {
     "edad": string = '';
     "esprofe": boolean ;
     "asignaturainscrita": [] = []
-    
+    "asignaturaprofe": [] = []
 }
 
 export class Clase {
@@ -20,14 +20,13 @@ export class Clase {
 }
 
 export class Asistencia {
-    
-    "nombre": string = '';
-    "apellido": string = '';
-    "rut": string = '';
-    "sede": string = '';
-    "contra": string = '';
-    "edad": string = '';
-    "esprofe": boolean ;
-    "asignaturainscrita": [] = []
-    ""
+    "idasistencia": string = '';
+    "fecha": number = 0 ;
+    "nombreclase": string = '';
+    "idclase": string = '';
+    "alumnopresente": [] = []
 }
+
+
+
+

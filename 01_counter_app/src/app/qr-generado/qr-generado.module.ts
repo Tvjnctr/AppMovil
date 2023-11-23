@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilPPageRoutingModule } from './perfil-p-routing.module';
+import { QrGeneradoPageRoutingModule } from './qr-generado-routing.module';
 
-import { PerfilPPage } from './perfil-p.page';
+import { QrGeneradoPage } from './qr-generado.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPPageRoutingModule
+    QrGeneradoPageRoutingModule
   ],
-  declarations: [PerfilPPage]
+  declarations: [QrGeneradoPage]
 })
-export class PerfilPPageModule {}
+export class QrGeneradoPageModule {}

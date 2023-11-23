@@ -31,12 +31,18 @@ export class HomePage {
     if (this.userInfo && this.userInfo.contra === this.contrasenaInput) {
       console.log('Credenciales válidas');
       await this.fire.setCurrentUser(this.userInfo);
-      this.router.navigate(['/alumno']);
+      
+      // Verifica si el usuario es profesor o alumno y redirige adecuadamente
+      if (this.userInfo.esprofe) {
+        this.router.navigate(['/profesor']);
+      } else {
+        this.router.navigate(['/alumno']);
+      }
     } else {
       console.log('Credenciales inválidas');
       // Puedes mostrar un mensaje de error al usuario en la interfaz de usuario si lo deseas
     }
-  }
+  }  
 
   isValidRut(rut: string): boolean {
     const rutPattern = /^\d{7,8}-?(\d|k|K)$/;
