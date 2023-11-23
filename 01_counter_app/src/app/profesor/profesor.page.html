@@ -10,7 +10,7 @@
             <ion-avatar class="ion-margin-vertical" size="large">
                <img src="assets/icon/perfil.jpg" />
             </ion-avatar>
-            <ion-label class="user"><span class="name">(profesor)</span><span class="profile">Biologia</span></ion-label>
+            <ion-label class="user"><span class="name">{{alumno?.nombre}}</span><span class="profile"></span></ion-label>
          </ion-item>
          <ion-item href="/profesor" button detail="false" class="active">
             <ion-label>
@@ -18,13 +18,13 @@
                Home
             </ion-label>
          </ion-item>
-         <ion-item href="perfil-p" button detail="false">
+         <ion-item href="" button detail="false">
             <ion-label>
                <ion-icon name="person"></ion-icon>
                Perfil
             </ion-label>
          </ion-item>
-         <ion-item href="/asignatura-p" button detail="false">
+         <ion-item href="" button detail="false">
             <ion-label>
                <ion-icon name="grid-outline"></ion-icon>
                Clases
@@ -60,7 +60,7 @@
          <ion-item-divider>
             &nbsp;
          </ion-item-divider>
-         <ion-item button detail="false">
+         <ion-item button detail="false" href="/home">
             <ion-label>
                <ion-icon name="arrow-forward-circle"></ion-icon>
                Salirse
@@ -96,8 +96,6 @@
       </ion-toolbar>
    </ion-header>
   <ion-content id="contentH" class="ion-padding">
-   <ion-label class="saludo"><strong>Bienvenido (Profesor)</strong></ion-label>
-   <br><br> <br>
    <ion-label class="saludo"><strong>Bienvenido {{ alumno?.nombre }} {{ alumno?.apellido }}</strong></ion-label>
    <br><br> <br>
    <ion-item button detail="true" *ngFor="let clase of detallesClases" (click)="verDetalleAsignatura(clase.idclase)">

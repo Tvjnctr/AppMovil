@@ -10,7 +10,7 @@
         <ion-avatar class="ion-margin-vertical" size="large">
           <img src="assets/icon/perfil.jpg" />
         </ion-avatar>
-        <ion-label class="user"><span class="name">(profesor)</span><span class="profile">Biologia</span></ion-label>
+        <ion-label class="user"><span class="name">(profesor)</span><span class="profile"></span></ion-label>
       </ion-item>
       <ion-item detail="false" class="active">
         <ion-label>
@@ -93,6 +93,6 @@
     <ion-item-divider> &nbsp; </ion-item-divider>
     <qrcode [qrdata]="idAsistencia" [width]="256" [allowEmptyString]="true"></qrcode>
     <ion-item-divider> &nbsp; </ion-item-divider>
+    <p *ngFor="let nombre of nombresAlumnos">{{ nombre }}</p>
   </ion-content>
-  <p *ngFor="let nombre of nombresAlumnos">{{ nombre }}</p>
 </div>
