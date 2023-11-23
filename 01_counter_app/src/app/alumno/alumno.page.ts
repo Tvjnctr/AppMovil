@@ -4,7 +4,6 @@ import { FirebaseService } from '../servicio/firebase.service';
 import { Alumno } from '../modelos/usuario';
 import { Storage } from '@ionic/storage-angular';
 
-
 @Component({
   selector: 'app-alumno',
   templateUrl: './alumno.page.html',
@@ -12,13 +11,13 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AlumnoPage implements OnInit {
 
-  alumno: Alumno; // Asegúrate de tener una propiedad para almacenar los datos del alumno
+  alumno: Alumno;
+  detallesClases: any[]; // Asegúrate de tener una propiedad para almacenar los detalles de las clases
 
-  constructor( private storage: Storage, private router: Router, private firebaseService: FirebaseService) { }
+  constructor(private storage: Storage, private router: Router, private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-
-    this.cargarDatosUsuario()
+    this.cargarDatosUsuario();
   }
 
   async cargarDatosUsuario() {
@@ -26,9 +25,18 @@ export class AlumnoPage implements OnInit {
     if (usuario) {
       this.alumno = usuario;
       console.log(usuario);
+
+      // Llamar al método para obtener detalles de las clases
+      this.obtenerDetalleClases(this.alumno.asignaturainscrita);
     } else {
       console.log('No se encontraron datos del usuario');
       // Manejar la situación cuando no hay datos del usuario
     }
+  }
+
+  async obtenerDetalleClases(idsClases: string[]) {
+    this.detallesClases = await this.firebaseService.obtenerDetalleClases(idsClases);
+    console.log('Detalles de clases:', this.detallesClases);
+    // Puedes utilizar detallesClases en tu HTML para mostrar la información necesaria
   }
 }

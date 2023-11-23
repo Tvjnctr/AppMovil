@@ -52,14 +52,19 @@ export class FirebaseService {
     }
   }
 
-  async obtenerClasesDeAlumno(userId: string) {
-    const userRef = ref(this.db, `/alumnos/${userId}/asignaturainscrita`);
-    const snapshot = await get(userRef);
-    if (snapshot.exists()) {
-      return snapshot.val();
-    } else {
-      return [];
+  async obtenerDetalleClases(idsClases: string[]) {
+    const detallesClases = [];
+    
+    for (const idClase of idsClases) {
+      const claseRef = ref(this.db, `/clases/${idClase}`);
+      const snapshot = await get(claseRef);
+
+      if (snapshot.exists()) {
+        detallesClases.push(snapshot.val());
+      }
     }
+
+    return detallesClases;
   }
 
   
