@@ -18,6 +18,7 @@ export class QrGeneradoPage implements OnInit {
   ngOnInit() {
     this.activatedroute.queryParams.subscribe(async params => {
       if (params['idasistencia']) {
+        this.idAsistencia = (params['idasistencia'])
       }
     });
   }
