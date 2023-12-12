@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'qrscanner',
     loadChildren: () => import('./qrscanner/qrscanner.module').then( m => m.QrscannerPageModule)
-  },  {
+  },
+  {
     path: 'detalle-asignatura',
     loadChildren: () => import('./detalle-asignatura/detalle-asignatura.module').then( m => m.DetalleAsignaturaPageModule)
   },
@@ -34,7 +35,6 @@ const routes: Routes = [
     path: 'qr-generado',
     loadChildren: () => import('./qr-generado/qr-generado.module').then( m => m.QrGeneradoPageModule)
   },
-
 
 
 ];
