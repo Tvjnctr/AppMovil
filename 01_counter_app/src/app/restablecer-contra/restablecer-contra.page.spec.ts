@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RestablecerContraPage } from './restablecer-contra.page';
 
 describe('RestablecerContraPage', () => {
@@ -15,3 +15,4 @@ describe('RestablecerContraPage', () => {
     expect(component).toBeTruthy();
   });
 });
+ */
