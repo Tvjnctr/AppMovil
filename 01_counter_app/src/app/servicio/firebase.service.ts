@@ -36,18 +36,18 @@ export class FirebaseService {
   async obtenerUsuario(user: string) {
     const userRef = ref(this.db, `/alumnos/${user}`);
     const snapshot = await get(userRef);
-    if (snapshot.exists()) {    
+    if (snapshot.exists()) {
       return snapshot.val();
     } else {
       return null;
     }
   }
 
-  
+
   async obtenerClase(user: string) {
     const userRef = ref(this.db, `/clases/${user}`);
     const snapshot = await get(userRef);
-    if (snapshot.exists()) {    
+    if (snapshot.exists()) {
       return snapshot.val();
     } else {
       return null;
@@ -56,7 +56,7 @@ export class FirebaseService {
 
   async obtenerDetalleClases(idsClases: string[]) {
     const detallesClases = [];
-    
+
     for (const idClase of idsClases) {
       const claseRef = ref(this.db, `/clases/${idClase}`);
       const snapshot = await get(claseRef);
@@ -69,11 +69,11 @@ export class FirebaseService {
     return detallesClases;
   }
 
-  
+
   async obtenerAsistencia(user: string) {
     const userRef = ref(this.db, `/asistencia/${user}`);
     const snapshot = await get(userRef);
-    if (snapshot.exists()) {    
+    if (snapshot.exists()) {
       return snapshot.val();
     } else {
       return null;
@@ -84,7 +84,7 @@ export class FirebaseService {
   async obtenerAsistencia2(user: string) {
     const userRef = ref(this.db, `/asistencia/${user}`);
     const snapshot = await get(userRef);
-    if (snapshot.exists()) {    
+    if (snapshot.exists()) {
       return snapshot.val() as Asistencia;
     } else {
       return null;
@@ -116,17 +116,23 @@ export class FirebaseService {
     return new Date().getTime();
   }
 
-  async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
+  async alumnoPresente(idAsistencia: string, idUsuario: string, asignaturainscrita: string[], idClase: string): Promise<void> {
     const attendanceRef = ref(this.db, `asistencia/${idAsistencia}`);
-    console.log("SERVICIO "+attendanceRef)
+    console.log("SERVICIO " + attendanceRef)
     try {
       const snapshot = await get(attendanceRef);
       if (snapshot.exists()) {
-        const attendance = snapshot.val();
-        attendance.alumnopresente = attendance.alumnopresente || [];
-        if (!attendance.alumnopresente.includes(idUsuario)) {
-          attendance.alumnopresente.push(idUsuario);
-          await set(attendanceRef, attendance);
+        const usuarioPerteneceALaClase = await this.alumnoPerteneceClase(asignaturainscrita, idClase)
+        if (!usuarioPerteneceALaClase) {
+          console.log('usuario no pertenece a la clase')
+          return
+        } else {
+          const attendance = snapshot.val();
+          attendance.alumnopresente = attendance.alumnopresente || [];
+          if (!attendance.alumnopresente.includes(idUsuario)) {
+            attendance.alumnopresente.push(idUsuario);
+            await set(attendanceRef, attendance);
+          }
         }
       } else {
         console.log('Attendance record not found');
@@ -135,6 +141,12 @@ export class FirebaseService {
       console.error('Error updating attendance record:', error);
       throw error;
     }
+  }
+
+  async alumnoPerteneceClase(asignaturainscrita: string[], idClase: string) {
+    const alumnoPertenece = asignaturainscrita.includes(idClase)
+
+    return alumnoPertenece ? true : null;
   }
 
 
