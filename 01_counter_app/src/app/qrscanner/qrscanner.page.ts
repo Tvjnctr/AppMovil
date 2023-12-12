@@ -53,6 +53,7 @@ export class QrscannerPage implements OnInit {
       if (result.barcode.displayValue) {
         this.asistencia = result.barcode.displayValue; 
         this.stopScan(); 
+        await this.cargarAsistencia()
         await this.firebaseService.alumnoPresente(this.asistencia, this.alumno?.rut, this.alumno.asignaturainscrita,this.detalleAsistencia.idclase);
       }
     });

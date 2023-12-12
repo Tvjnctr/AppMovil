@@ -123,6 +123,7 @@ export class FirebaseService {
       const snapshot = await get(attendanceRef);
       if (snapshot.exists()) {
         const usuarioPerteneceALaClase = await this.alumnoPerteneceClase(asignaturainscrita, idClase)
+        console.log(usuarioPerteneceALaClase)
         if (!usuarioPerteneceALaClase) {
           console.log('usuario no pertenece a la clase')
           return
@@ -144,6 +145,8 @@ export class FirebaseService {
   }
 
   async alumnoPerteneceClase(asignaturainscrita: string[], idClase: string) {
+    console.log('A1 = '+asignaturainscrita)
+    console.log('A2 = '+idClase)
     const alumnoPertenece = asignaturainscrita.includes(idClase)
 
     return alumnoPertenece ? true : null;
